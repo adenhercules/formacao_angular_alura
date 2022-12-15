@@ -9,6 +9,7 @@ import { Component, EventEmitter, Output } from "@angular/core";
 export class TransferenciaComponent {
 
   @Output() aoTransferir = new EventEmitter<any>();
+  @Output() valoresComErro = new EventEmitter<String>();
 
   valor: number;
   destino: number;
@@ -26,5 +27,16 @@ export class TransferenciaComponent {
     this.destino = 0;
   }
 
+  private  ehValido() {
+    const valido = this.valor > 0;
+    if (!valido) {
+        this.valoresComErro.emit('Informe um valor válido');
+    }
+    return valido;
+}
+
+exibirModalErro(mensagem){
+    this.valoresComErro.emit(mensagem);
+}
 
 }
