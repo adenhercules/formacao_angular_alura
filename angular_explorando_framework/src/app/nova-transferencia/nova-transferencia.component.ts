@@ -8,8 +8,14 @@ import { Component } from "@angular/core";
 
 export class TransferenciaComponent {
 
+  valor: number;
+  destino: number;
+
   transferir(){
     console.log("Transferir");
+    console.log('valor', this.valor)
+    console.log('destino', this.destino)
   }
+
 
 }
