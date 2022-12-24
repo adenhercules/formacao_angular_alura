@@ -8,17 +8,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 
 export class AppComponent {
   title = 'angular_explorando_framework';
-  transferencia: any;
-  valor: number;
-  destino: number;
+  transferencias: any[] = [];
 
-  transferir($event){
-    console.log($event)
-    this.transferencia = $event;
-  }
-
-  limparCampos(){
-    this.valor = 0;
-    this.destino = 0;
+  transferir($event) {
+    console.log($event);
+    const transferencia = {...$event, data: new Date()};
+    this.transferencias.push($event);
   }
 }
