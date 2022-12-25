@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,6 @@ export class AppComponent {
   transferir($event) {
     console.log($event);
     const transferencia = {...$event, data: new Date()};
-    this.transferencias.push($event);
+    this.transferencias.push(transferencia);
   }
 }
