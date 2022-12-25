@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {TransferenciaService} from "../services/transferencia.service";
 
 @Component({
   selector: 'app-extrato',
@@ -7,10 +8,10 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ExtratoComponent implements OnInit{
   @Input() tranferencias: any[] = [];
-  constructor() {
-  }
+  constructor(private service: TransferenciaService) {}
 
   ngOnInit(): void {
+    this.tranferencias = this.service.transferencias;
   }
 
 }
