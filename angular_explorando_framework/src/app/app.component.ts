@@ -9,7 +9,12 @@ import {TransferenciaService} from "./services/transferencia.service";
 
 export class AppComponent {
   title = 'angular_explorando_framework';
+  transferencias: any[] = [];
 
-  constructor(private service: TransferenciaService) {
+  constructor(private service: TransferenciaService) {}
+
+  transferir($event) {
+    this.service.adicionar($event).subscribe(x => console.log(x));
   }
 }
+
