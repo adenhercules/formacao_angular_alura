@@ -16,10 +16,12 @@ export class TransferenciaService {
   get transferencias(){
     return this.listaTransferencia;
   }
-  adicionar(tranferencia: any) {
-    this.hidratar(tranferencia);
-    this.listaTransferencia.push(tranferencia)
+
+  adicionar(transferencia: Transferencia): Observable<Transferencia>{
+    this.hidratar(transferencia);
+    return this.httpClient.post<Transferencia>(this.url, transferencia)
   }
+
   private hidratar (tranferencia: any){
     tranferencia.data = new Date()
   }
